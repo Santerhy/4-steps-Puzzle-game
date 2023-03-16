@@ -1,0 +1,19 @@
+----Prime numbers----
+Correct: 11, 17, 37, 61
+Wrong: 9, 10, 12, 15, 16, 20, 21, 22, 30, 32, 36, 38, 39, 44, 50, 51, 52, 53, 68, 69
+
+----Tutorial, every sixth is 6----
+Correct: 6, 6, 6, 6
+wrong: 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23
+
+----Bills----
+Correct: 5€, 10€ 20€ 100€
+Wrong: 1€, 7€, 3€, 12€, 19€, 24€, 25€, 34€, 37€, 41€, 43€, 66€, 69€, 70€, 72€, 77€, 80€, 88€, 89€, 90€
+
+----Typos----
+Correct: sevn, elven, tventu, eighty-sex
+Wrong: three, nine, thirteen, twenty-three, thirty-one, thirty-three, forty, forty-three, forty-seven, forty-nine, fifty-five, fifty-nine, sixty-three, sixty-nine, seventy-three, eighty-three, eighty-seven, ninety-one, ninety-seven, one hundred
+
+----Biggest of row----
+Correct: 	23			66			150			73
+Wrong: -5, 10, -7, 22, 2	4, 13, 54, 22, 3	55, 43, 88, 102, 6	27, -12, 65, -105, 59
