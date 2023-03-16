@@ -1,33 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 
 public class OptionFiller : MonoBehaviour
 {
-    public class Puzzle
-    {
-        public List<string> options= new List<string>();
-        public List<string> correctOptions= new List<string>();
-        public bool shuffle;
-        public Puzzle(List<string> options, List<string> correctOptions, bool suf)
-        {
-            this.options = options;
-            this.correctOptions = correctOptions;
-            shuffle = suf;
-        }
-    }
+    
+    List<Puzzle> puzzleList = new List<Puzzle>();
     // Start is called before the first frame update
     void Start()
     {
-        List<Puzzle> puzzleList = new List<Puzzle>();
         puzzleList.Add(FirstPuzzle());
+        puzzleList.Add(SecondPuzzle());
+        puzzleList.Add(ThirdPuzzle());
+        puzzleList.Add(FourthPuzzle());
+        puzzleList.Add(FifthPuzzle());
     }
 
-    // Update is called once per frame
-    void Update()
+    public Puzzle GetPuzzle(int index)
     {
-        
+        if (puzzleList[index].shuffle)
+            Shuffle(puzzleList[index].options);
+
+        return puzzleList[index];
+    }
+
+    private static void Shuffle(List<string> optionsList)
+    {
+        int n = optionsList.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n);
+            string value = optionsList[k];
+            optionsList[k] = optionsList[n];
+            optionsList[n] = value;
+        }
     }
 
     Puzzle FirstPuzzle()
@@ -53,5 +62,156 @@ public class OptionFiller : MonoBehaviour
         List<string> options = new List<string>();
         List<string> correct = new List<string>();
 
+        options.Add("-5");
+        options.Add("10");
+        options.Add("-7");
+        options.Add("22");
+        options.Add("2");
+        options.Add("23");
+        correct.Add("23");
+
+        correct.Add("66");
+        options.Add("66");
+        options.Add("4");
+        options.Add("13");
+        options.Add("54");
+        options.Add("22");
+        options.Add("3");
+
+        options.Add("55");
+        options.Add("43");
+        correct.Add("150");
+        options.Add("150");
+        options.Add("88");
+        options.Add("102");
+        options.Add("6");
+
+        options.Add("27");
+        options.Add("-12");
+        options.Add("65");
+        correct.Add("73");
+        options.Add("73");
+        options.Add("-105");
+        options.Add("59");
+
+        Puzzle p = new Puzzle(options, correct, false);
+        return p;
+    }
+
+    Puzzle ThirdPuzzle()
+    {
+        List<string> options = new List<string>();
+        List<string> correct = new List<string>();
+
+        correct.Add("5€");
+        correct.Add("10€");
+        correct.Add("20€");
+        correct.Add("100€");
+
+        options.Add("5€");
+        options.Add("10€");
+        options.Add("20€");
+        options.Add("100€");
+        options.Add("1€");
+        options.Add("7€");
+        options.Add("3€");
+        options.Add("12€");
+        options.Add("19€");
+        options.Add("24€");
+        options.Add("25€");
+        options.Add("34€");
+        options.Add("37€");
+        options.Add("41€");
+        options.Add("43€");
+        options.Add("66€");
+        options.Add("69€");
+        options.Add("70€");
+        options.Add("72€");
+        options.Add("77€");
+        options.Add("80€");
+        options.Add("88€");
+        options.Add("89€");
+        options.Add("90€");
+
+        Puzzle p = new Puzzle(options, correct, true);
+        return p;
+    }
+
+    Puzzle FourthPuzzle()
+    {
+        List<string> options = new List<string>();
+        List<string> correct = new List<string>();
+
+        options.Add("three");
+        options.Add("nine");
+        options.Add("thirteen");
+        options.Add("twenty-three");
+        options.Add("thirty-one");
+        options.Add("thirty-three");
+        options.Add("forty");
+        options.Add("forty-three");
+        options.Add("forty-seven");
+        options.Add("forty-nine");
+        options.Add("fifty-five");
+        options.Add("fifty-nine");
+        options.Add("sixty-three");
+        options.Add("sixty-nine");
+        options.Add("seventy-three");
+        options.Add("eighty-three");
+        options.Add("eighty-seven");
+        options.Add("ninety-one");
+        options.Add("ninety-seven");
+        options.Add("one hundred");
+        options.Add("sevn");
+        options.Add("elven");
+        options.Add("tventu");
+        options.Add("eighty-sex");
+
+        correct.Add("sevn");
+        correct.Add("elven");
+        correct.Add("tventu");
+        correct.Add("eighty-sex");
+
+        Puzzle p = new Puzzle(options, correct, true);
+        return p;
+    }
+
+    Puzzle FifthPuzzle()
+    {
+        List<string> options = new List<string>();
+        List<string> correct = new List<string>();
+
+        options.Add("9");
+        options.Add("10");
+        options.Add("12");
+        options.Add("15");
+        options.Add("16");
+        options.Add("20");
+        options.Add("21");
+        options.Add("22");
+        options.Add("30");
+        options.Add("32");
+        options.Add("36");
+        options.Add("38");
+        options.Add("39");
+        options.Add("44");
+        options.Add("50");
+        options.Add("51");
+        options.Add("52");
+        options.Add("53");
+        options.Add("68");
+        options.Add("69");
+        options.Add("11");
+        options.Add("17");
+        options.Add("37");
+        options.Add("61");
+
+        correct.Add("11");
+        correct.Add("17");
+        correct.Add("37");
+        correct.Add("61");
+
+        Puzzle p = new Puzzle(options, correct, true);
+        return p;
     }
 }
