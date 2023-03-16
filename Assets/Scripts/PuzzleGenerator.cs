@@ -13,6 +13,7 @@ public class PuzzleGenerator : MonoBehaviour
     public OptionFiller optionFiller;
     public Puzzle currentPuzzle;
     public GameManager gameManager;
+    public TMP_Text puzzleTitle;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class PuzzleGenerator : MonoBehaviour
         defCol = buttonPrefab.GetComponent<Image>().color;
         gameManager = FindObjectOfType<GameManager>();
         puzzleCounter= gameManager.puzzleCounter;
+        puzzleTitle.text = "Puzzle: " + (puzzleCounter + 1).ToString();
         GeneratePuzzle();
     }
 

@@ -33,4 +33,9 @@ public class GameManager : MonoBehaviour
         puzzleCounter++;
         SceneManager.LoadScene("Gameplay");
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Gameplay");
+    }
 }
