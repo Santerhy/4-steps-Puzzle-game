@@ -950,6 +950,9 @@ MonoBehaviour:
   optionFiller: {fileID: 755146231}
   gameManager: {fileID: 0}
   puzzleTitle: {fileID: 1727465847}
+  tileSelected: {fileID: 1162549743, guid: a416128ad3892ce48be3c9477826fc19, type: 3}
+  tileDefault: {fileID: -793920682, guid: 3a5df01883c1f9c4b94b38be638c8b66, type: 3}
+  tileFalse: {fileID: 1709948028, guid: bab6afce107074540917c02ac44e56ec, type: 3}
 --- !u!4 &1806749892
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,7 +1005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 14.3}
+  m_AnchoredPosition: {x: 0, y: 14.299988}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1984537745

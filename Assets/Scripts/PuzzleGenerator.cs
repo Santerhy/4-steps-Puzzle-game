@@ -9,27 +9,18 @@ public class PuzzleGenerator : MonoBehaviour
     public List<GameObject> selectedButtons = new List<GameObject>();
     public GameObject buttonPrefab, buttonHolder, clickPreventPanel, levelClearPanel;
     public int buttonCount, puzzleCounter;
-    public Color defCol, green, red;
     public OptionFiller optionFiller;
     public Puzzle currentPuzzle;
     public GameManager gameManager;
     public TMP_Text puzzleTitle;
+    public Sprite tileSelected, tileDefault, tileFalse;
     // Start is called before the first frame update
     void Start()
     {
-        green = Color.green;
-        red = Color.red;
-        defCol = buttonPrefab.GetComponent<Image>().color;
         gameManager = FindObjectOfType<GameManager>();
         puzzleCounter= gameManager.puzzleCounter;
         puzzleTitle.text = "Puzzle: " + (puzzleCounter + 1).ToString();
         GeneratePuzzle();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void GeneratePuzzle()
@@ -46,14 +37,13 @@ public class PuzzleGenerator : MonoBehaviour
 
     public void ButtonFunction(GameObject b)
     {
-        Debug.Log("Button pressed with text: " + b.GetComponentInChildren<TMP_Text>().text);
         if (selectedButtons.Contains(b))
         {
-            b.GetComponent<Image>().color = defCol;
+            b.GetComponent<Image>().sprite =tileDefault;
             selectedButtons.Remove(b);
         } else
         {
-            b.GetComponent<Image>().color = green;
+            b.GetComponent<Image>().sprite = tileSelected;
             selectedButtons.Add(b);
         }
 
@@ -82,7 +72,7 @@ public class PuzzleGenerator : MonoBehaviour
     {
         clickPreventPanel.SetActive(true);
         foreach (GameObject g in selectedButtons)
-            g.GetComponent<Image>().color = red;
+            g.GetComponent<Image>().sprite = tileFalse;
         StartCoroutine(ButtonsDisabled());
     }
 
@@ -91,7 +81,7 @@ public class PuzzleGenerator : MonoBehaviour
         yield return new WaitForSeconds(1);
         clickPreventPanel.SetActive(false);
         foreach (GameObject g in selectedButtons)
-            g.GetComponent<Image>().color = defCol;
+            g.GetComponent<Image>().sprite = tileDefault;
         selectedButtons.Clear();
     }
 

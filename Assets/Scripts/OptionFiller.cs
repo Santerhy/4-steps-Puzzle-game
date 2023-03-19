@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 
 public class OptionFiller : MonoBehaviour
@@ -178,38 +177,39 @@ public class OptionFiller : MonoBehaviour
 
     Puzzle FifthPuzzle()
     {
+        //prime Numbers
         List<string> options = new List<string>();
         List<string> correct = new List<string>();
 
-        options.Add("9");
-        options.Add("10");
-        options.Add("12");
-        options.Add("15");
-        options.Add("16");
-        options.Add("20");
-        options.Add("21");
-        options.Add("22");
-        options.Add("30");
-        options.Add("32");
-        options.Add("36");
-        options.Add("38");
-        options.Add("39");
-        options.Add("44");
-        options.Add("50");
-        options.Add("51");
-        options.Add("52");
-        options.Add("53");
-        options.Add("68");
-        options.Add("69");
+        options.Add("2");
+        options.Add("3");
+        options.Add("5");
+        options.Add("7");
         options.Add("11");
+        options.Add("13");
         options.Add("17");
+        options.Add("19");
+        options.Add("23");
+        options.Add("29");
+        options.Add("31");
         options.Add("37");
+        options.Add("41");
+        options.Add("43");
+        options.Add("47");
+        options.Add("53");
+        options.Add("59");
         options.Add("61");
+        options.Add("67");
+        options.Add("71");
+        options.Add("6");
+        options.Add("8");
+        options.Add("12");
+        options.Add("18");
 
-        correct.Add("11");
-        correct.Add("17");
-        correct.Add("37");
-        correct.Add("61");
+        correct.Add("6");
+        correct.Add("8");
+        correct.Add("12");
+        correct.Add("18");
 
         Puzzle p = new Puzzle(options, correct, true);
         return p;
