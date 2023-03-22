@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,8 +13,9 @@ public class PuzzleGenerator : MonoBehaviour
     public OptionFiller optionFiller;
     public Puzzle currentPuzzle;
     public GameManager gameManager;
-    public TMP_Text puzzleTitle;
-    public Sprite tileSelected, tileDefault, tileFalse;
+    public TMP_Text puzzleTitle, puzzleHint;
+    public Sprite tileSelected, tileDefault, tileFalse, tileCorrect;
+    public Sprite defaultTieRight, defaultTieLeft, defaultTieRL, selectedTieRight, selectedTieLeft, selectedTieRL, falseTieRight, falseTieLeft, falseTieRL, correctTieRight, correctTieLeft, correctTieRL;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,9 @@ public class PuzzleGenerator : MonoBehaviour
         puzzleCounter= gameManager.puzzleCounter;
         puzzleTitle.text = "Puzzle: " + (puzzleCounter + 1).ToString();
         GeneratePuzzle();
+        if (currentPuzzle.shuffle)
+            buttonHolder.GetComponent<GridLayoutGroup>().spacing = new Vector2(10, 20);
+        puzzleHint.text = currentPuzzle.hint;
     }
 
     void GeneratePuzzle()
@@ -32,6 +37,25 @@ public class PuzzleGenerator : MonoBehaviour
             GameObject g = Instantiate(buttonPrefab, buttonHolder.transform);
             g.GetComponentInChildren<TMP_Text>().text = currentPuzzle.options[i];
             g.GetComponent<Button>().onClick.AddListener(delegate { ButtonFunction(g); });
+            if (!currentPuzzle.shuffle)
+            {
+                if ((i + 1) % 6 == 0)
+                {
+                    g.GetComponent<Image>().sprite = defaultTieLeft;
+                    g.GetComponent<ButtonData>().spriteType = 1;
+                }
+                else if ((i + 1) % 6 == 1)
+                {
+                    g.GetComponent<Image>().sprite = defaultTieRight;
+                    g.GetComponent<ButtonData>().spriteType = 0;
+                }
+                else
+                {
+                    g.GetComponent<Image>().sprite = defaultTieRL;
+                    g.GetComponent<ButtonData>().spriteType = 2;
+                }
+            }
+                
         }
     }
 
@@ -39,11 +63,36 @@ public class PuzzleGenerator : MonoBehaviour
     {
         if (selectedButtons.Contains(b))
         {
-            b.GetComponent<Image>().sprite =tileDefault;
+            if (currentPuzzle.shuffle)
+            {
+                b.GetComponent<Image>().sprite = tileDefault;
+                
+            } else
+            {
+                int type = b.GetComponent<ButtonData>().spriteType;
+                if (type == 0)
+                    b.GetComponent<Image>().sprite = defaultTieRight;
+                else if (type == 1)
+                    b.GetComponent<Image>().sprite = defaultTieLeft;
+                else
+                    b.GetComponent<Image>().sprite = defaultTieRL;
+            }
             selectedButtons.Remove(b);
         } else
         {
-            b.GetComponent<Image>().sprite = tileSelected;
+            if (currentPuzzle.shuffle)
+            {
+                b.GetComponent<Image>().sprite = tileSelected;
+            } else
+            {
+                int type = b.GetComponent<ButtonData>().spriteType;
+                if (type == 0)
+                    b.GetComponent<Image>().sprite = selectedTieRight;
+                else if (type == 1)
+                    b.GetComponent<Image>().sprite = selectedTieLeft;
+                else
+                    b.GetComponent<Image>().sprite = selectedTieRL;
+            }
             selectedButtons.Add(b);
         }
 
@@ -61,6 +110,21 @@ public class PuzzleGenerator : MonoBehaviour
     {
         levelClearPanel.SetActive(true);
         clickPreventPanel.SetActive(true);
+        foreach (GameObject g in selectedButtons)
+        {
+            if (currentPuzzle.shuffle)
+                g.GetComponent<Image>().sprite = tileCorrect;
+            else
+            {
+                int type = g.GetComponent<ButtonData>().spriteType;
+                if (type == 0)
+                    g.GetComponent<Image>().sprite = correctTieRight;
+                else if (type == 1)
+                    g.GetComponent<Image>().sprite = correctTieLeft;
+                else
+                    g.GetComponent<Image>().sprite = correctTieRL;
+            }
+        }
     }
 
     public void NextPuzzle()
@@ -72,7 +136,20 @@ public class PuzzleGenerator : MonoBehaviour
     {
         clickPreventPanel.SetActive(true);
         foreach (GameObject g in selectedButtons)
-            g.GetComponent<Image>().sprite = tileFalse;
+        {
+            if (currentPuzzle.shuffle)
+                g.GetComponent<Image>().sprite = tileFalse;
+            else
+            {
+                int type = g.GetComponent<ButtonData>().spriteType;
+                if (type == 0)
+                    g.GetComponent<Image>().sprite = falseTieRight;
+                else if (type == 1)
+                    g.GetComponent<Image>().sprite = falseTieLeft;
+                else
+                    g.GetComponent<Image>().sprite = falseTieRL;
+            }
+        }
         StartCoroutine(ButtonsDisabled());
     }
 
@@ -81,7 +158,20 @@ public class PuzzleGenerator : MonoBehaviour
         yield return new WaitForSeconds(1);
         clickPreventPanel.SetActive(false);
         foreach (GameObject g in selectedButtons)
-            g.GetComponent<Image>().sprite = tileDefault;
+        {
+            if (currentPuzzle.shuffle)
+                g.GetComponent<Image>().sprite = tileDefault;
+            else
+            {
+                int type = g.GetComponent<ButtonData>().spriteType;
+                if (type == 0)
+                    g.GetComponent<Image>().sprite = defaultTieRight;
+                else if (type == 1)
+                    g.GetComponent<Image>().sprite = defaultTieLeft;
+                else
+                    g.GetComponent<Image>().sprite = defaultTieRL;
+            }
+        }
         selectedButtons.Clear();
     }
 

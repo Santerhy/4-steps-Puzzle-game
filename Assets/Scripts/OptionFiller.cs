@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 
 
 public class OptionFiller : MonoBehaviour
@@ -10,11 +12,11 @@ public class OptionFiller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        puzzleList.Add(FirstPuzzle());
-        puzzleList.Add(SecondPuzzle());
-        puzzleList.Add(ThirdPuzzle());
-        puzzleList.Add(FourthPuzzle());
-        puzzleList.Add(FifthPuzzle());
+        puzzleList.Add(EverySixth());
+        puzzleList.Add(HighestOfRow());
+        puzzleList.Add(Bills());
+        puzzleList.Add(Typos());
+        puzzleList.Add(PrimeNumbers());
     }
 
     public Puzzle GetPuzzle(int index)
@@ -38,8 +40,9 @@ public class OptionFiller : MonoBehaviour
         }
     }
 
-    Puzzle FirstPuzzle()
+    Puzzle EverySixth()
     {
+        //Every sixth is six
         List<string> options = new List<string>();
         List<string> correct = new List<string>();
         for(int i = 1; i < 25; i++)
@@ -51,13 +54,15 @@ public class OptionFiller : MonoBehaviour
         }
         for (int i = 0; i < 4; i++)
             correct.Add("6");
+        string hint = "If only you had a sixth sense";
 
-        Puzzle p = new Puzzle(options, correct, false);
+        Puzzle p = new Puzzle(options, correct, false, hint);
         return p;
     }
 
-    Puzzle SecondPuzzle()
+    Puzzle HighestOfRow()
     {
+        //Highest of row
         List<string> options = new List<string>();
         List<string> correct = new List<string>();
 
@@ -93,12 +98,15 @@ public class OptionFiller : MonoBehaviour
         options.Add("-105");
         options.Add("59");
 
-        Puzzle p = new Puzzle(options, correct, false);
+        string hint = "The higher they fly...";
+
+        Puzzle p = new Puzzle(options, correct, false, hint);
         return p;
     }
 
-    Puzzle ThirdPuzzle()
+    Puzzle Bills()
     {
+        //Bills
         List<string> options = new List<string>();
         List<string> correct = new List<string>();
 
@@ -132,12 +140,15 @@ public class OptionFiller : MonoBehaviour
         options.Add("89€");
         options.Add("90€");
 
-        Puzzle p = new Puzzle(options, correct, true);
+        string hint = "Hire outside help for this and send me the bill";
+
+        Puzzle p = new Puzzle(options, correct, true, hint);
         return p;
     }
 
-    Puzzle FourthPuzzle()
+    Puzzle Typos()
     {
+        //Typos
         List<string> options = new List<string>();
         List<string> correct = new List<string>();
 
@@ -171,11 +182,13 @@ public class OptionFiller : MonoBehaviour
         correct.Add("tventu");
         correct.Add("eighty-sex");
 
-        Puzzle p = new Puzzle(options, correct, true);
+        string hint = "This one is a real mytsery";
+
+        Puzzle p = new Puzzle(options, correct, true, hint);
         return p;
     }
 
-    Puzzle FifthPuzzle()
+    Puzzle PrimeNumbers()
     {
         //prime Numbers
         List<string> options = new List<string>();
@@ -211,7 +224,9 @@ public class OptionFiller : MonoBehaviour
         correct.Add("12");
         correct.Add("18");
 
-        Puzzle p = new Puzzle(options, correct, true);
+        string hint = "This is your prime moment";
+
+        Puzzle p = new Puzzle(options, correct, true, hint);
         return p;
     }
 }

@@ -1,19 +1,39 @@
 ----Prime numbers----
 Correct: 11, 17, 37, 61
 Wrong: 9, 10, 12, 15, 16, 20, 21, 22, 30, 32, 36, 38, 39, 44, 50, 51, 52, 53, 68, 69
+Hint: This is your prime moment
 
 ----Tutorial, every sixth is 6----
 Correct: 6, 6, 6, 6
 wrong: 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23
+Hint: If only you had a sixth sense
 
 ----Bills----
 Correct: 5€, 10€ 20€ 100€
 Wrong: 1€, 7€, 3€, 12€, 19€, 24€, 25€, 34€, 37€, 41€, 43€, 66€, 69€, 70€, 72€, 77€, 80€, 88€, 89€, 90€
+Hint: Hire outside help for this and send me the bill
 
 ----Typos----
 Correct: sevn, elven, tventu, eighty-sex
 Wrong: three, nine, thirteen, twenty-three, thirty-one, thirty-three, forty, forty-three, forty-seven, forty-nine, fifty-five, fifty-nine, sixty-three, sixty-nine, seventy-three, eighty-three, eighty-seven, ninety-one, ninety-seven, one hundred
+Hint: This one is a real mytsery
 
-----Biggest of row----
+----Highest of row----
 Correct: 	23			66			150			73
-Wrong: -5, 10, -7, 22, 2	4, 13, 54, 22, 3	55, 43, 88, 102, 6	27, -12, 65, -105, 59
+Wrong: -5, 10, -7, 22, 2	4, 13, 54, 17, 3	55, 43, 88, 102, 6	27, -12, 65, -105, 59
+Hint: The higher they fly...
+
+----Even numbers----
+Correct: 8, 44, 70, 98
+Wrong: 27 73 91 11 51 59 79 61 83 9 3 67 87 19 71 93 49 75 39 97
+Hint: You could say that the odds are even in this one
+
+----Tens----
+Correct: 30, 40, 60, 90
+Wrong: 37 53 95 79 33 91 57 93 71 47 51 63 27 73 43 77 19 61 89 67
+Hint: Can you feel the ten-sion?
+
+----Numbers that start with 's'----
+Correct: 69, 61, 77, 16
+Wrong: 14, 35, 46, 59, 28, 25, 86, 93, 37, 48, 91, 52, 13, 54, 89, 26, 38, 31, 82, 97
+Hint: Samantha sells sea shells so successfully, she sometimes stocks surplus supplies.
