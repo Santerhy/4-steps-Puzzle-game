@@ -16,6 +16,9 @@ public class OptionFiller : MonoBehaviour
         puzzleList.Add(HighestOfRow());
         puzzleList.Add(Bills());
         puzzleList.Add(Typos());
+        puzzleList.Add(EvenNumbers());
+        puzzleList.Add(Tens());
+        puzzleList.Add(SNumbers());
         puzzleList.Add(PrimeNumbers());
     }
 
@@ -140,7 +143,7 @@ public class OptionFiller : MonoBehaviour
         options.Add("89€");
         options.Add("90€");
 
-        string hint = "Hire outside help for this and send me the bill";
+        string hint = "Remember to pay your bills";
 
         Puzzle p = new Puzzle(options, correct, true, hint);
         return p;
@@ -225,6 +228,60 @@ public class OptionFiller : MonoBehaviour
         correct.Add("18");
 
         string hint = "This is your prime moment";
+
+        Puzzle p = new Puzzle(options, correct, true, hint);
+        return p;
+    }
+
+    Puzzle EvenNumbers()
+    {
+        List<string> options = new List<string>
+{
+    "27", "73", "91", "11", "51", "59", "79", "61", "83", "9", "3", "67", "87", "19", "71", "93", "49", "75", "39", "97", "8", "44", "70", "98"
+};
+        List<string> correct = new List<string>();
+
+        correct.Add("8");
+        correct.Add("44");
+        correct.Add("70");
+        correct.Add("98");
+
+        string hint = "You could say that the odds are even in this one";
+
+        Puzzle p = new Puzzle(options, correct, true, hint);
+        return p;
+    }
+
+    Puzzle Tens()
+    {
+        List<string> options = new List<string>
+        {
+            "37", "53", "95", "79", "33", "91", "57", "93", "71", "47", "51", "63", "27", "73", "43", "77", "19", "61", "89", "67", "30", "40", "60", "90"
+        };
+        List<string> correct = new List<string>
+        {
+            "30", "40", "60", "90"
+        };
+
+        string hint = "Can you feel the tension?";
+
+        Puzzle p = new Puzzle(options, correct, true, hint);
+        return p;
+    }
+
+    Puzzle SNumbers()
+    {
+        List<string> options = new List<string>
+        {
+            "14", "35", "46", "59", "28", "25", "86", "93", "37", "48", "91", "52", "13", "54", "89", "26", "38", "31", "82", "97", "69", "61", "77", "16"
+        };
+
+        List<string> correct = new List<string>
+        {
+            "69", "61", "77", "16"
+        };
+
+        string hint = "Samantha sells sea shells so successfully, she sometimes stocks surplus supplies.";
 
         Puzzle p = new Puzzle(options, correct, true, hint);
         return p;

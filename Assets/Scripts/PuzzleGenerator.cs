@@ -16,16 +16,17 @@ public class PuzzleGenerator : MonoBehaviour
     public TMP_Text puzzleTitle, puzzleHint;
     public Sprite tileSelected, tileDefault, tileFalse, tileCorrect;
     public Sprite defaultTieRight, defaultTieLeft, defaultTieRL, selectedTieRight, selectedTieLeft, selectedTieRL, falseTieRight, falseTieLeft, falseTieRL, correctTieRight, correctTieLeft, correctTieRL;
-    // Start is called before the first frame update
+    public Animator menuAnimator;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         puzzleCounter= gameManager.puzzleCounter;
-        puzzleTitle.text = "Puzzle: " + (puzzleCounter + 1).ToString();
+        puzzleTitle.text = "Puzzle " + (puzzleCounter + 1).ToString();
         GeneratePuzzle();
         if (currentPuzzle.shuffle)
             buttonHolder.GetComponent<GridLayoutGroup>().spacing = new Vector2(10, 20);
         puzzleHint.text = currentPuzzle.hint;
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>().PlayMusic();
     }
 
     void GeneratePuzzle()
@@ -110,6 +111,7 @@ public class PuzzleGenerator : MonoBehaviour
     {
         levelClearPanel.SetActive(true);
         clickPreventPanel.SetActive(true);
+        menuAnimator.SetTrigger("OpenMenu");
         foreach (GameObject g in selectedButtons)
         {
             if (currentPuzzle.shuffle)
