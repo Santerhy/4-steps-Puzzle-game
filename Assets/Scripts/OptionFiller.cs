@@ -29,6 +29,10 @@ public class OptionFiller : MonoBehaviour
 
         return puzzleList[index];
     }
+    public int GetMaxPuzzle()
+    {
+        return puzzleList.Count - 1;
+    }
 
     private static void Shuffle(List<string> optionsList)
     {

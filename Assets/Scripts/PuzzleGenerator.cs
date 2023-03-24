@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,24 +10,30 @@ public class PuzzleGenerator : MonoBehaviour
 {
     public List<GameObject> selectedButtons = new List<GameObject>();
     public GameObject buttonPrefab, buttonHolder, clickPreventPanel, levelClearPanel;
-    public int buttonCount, puzzleCounter;
+    public int buttonCount, puzzleCounter, tryCounter;
     public OptionFiller optionFiller;
     public Puzzle currentPuzzle;
     public GameManager gameManager;
-    public TMP_Text puzzleTitle, puzzleHint;
+    public TMP_Text puzzleTitle, puzzleHint, tryCounterText, timeText;
     public Sprite tileSelected, tileDefault, tileFalse, tileCorrect;
     public Sprite defaultTieRight, defaultTieLeft, defaultTieRL, selectedTieRight, selectedTieLeft, selectedTieRL, falseTieRight, falseTieLeft, falseTieRL, correctTieRight, correctTieLeft, correctTieRL;
     public Animator menuAnimator;
+    private MusicPlayer musicPlayer;
+    private SoundeffectPlayer soundeffectPlayer;
+    public Timer timer;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        puzzleCounter= gameManager.puzzleCounter;
+        puzzleCounter = gameManager.GetPuzzleCounter(optionFiller.GetMaxPuzzle());
         puzzleTitle.text = "Puzzle " + (puzzleCounter + 1).ToString();
         GeneratePuzzle();
         if (currentPuzzle.shuffle)
             buttonHolder.GetComponent<GridLayoutGroup>().spacing = new Vector2(10, 20);
         puzzleHint.text = currentPuzzle.hint;
-        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>().PlayMusic();
+        musicPlayer = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>();
+        musicPlayer.PlayMusic();
+        soundeffectPlayer = FindObjectOfType<SoundeffectPlayer>();
+        tryCounter = 0;
     }
 
     void GeneratePuzzle()
@@ -62,6 +69,7 @@ public class PuzzleGenerator : MonoBehaviour
 
     public void ButtonFunction(GameObject b)
     {
+        //soundeffectPlayer.PlayClick();
         if (selectedButtons.Contains(b))
         {
             if (currentPuzzle.shuffle)
@@ -109,9 +117,13 @@ public class PuzzleGenerator : MonoBehaviour
 
     private void LevelCleared()
     {
+        tryCounter++;
+        soundeffectPlayer.PlayLevelClear();
         levelClearPanel.SetActive(true);
         clickPreventPanel.SetActive(true);
         menuAnimator.SetTrigger("OpenMenu");
+        tryCounterText.text = "Attempts: " + tryCounter.ToString();
+        timeText.text = "Time: " + TimeSpan.FromSeconds(timer.GetTime()).ToString("mm\\:ss");
         foreach (GameObject g in selectedButtons)
         {
             if (currentPuzzle.shuffle)
@@ -131,11 +143,14 @@ public class PuzzleGenerator : MonoBehaviour
 
     public void NextPuzzle()
     {
-        gameManager.LoadNextPuzzle();
+        soundeffectPlayer.PlayClick();
+        gameManager.LoadNextPuzzle(tryCounter);
     }
 
     private void ResetPuzzle()
     {
+        soundeffectPlayer.PlayFail();
+        tryCounter++;
         clickPreventPanel.SetActive(true);
         foreach (GameObject g in selectedButtons)
         {

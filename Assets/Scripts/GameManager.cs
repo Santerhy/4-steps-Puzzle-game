@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public int puzzleCounter;
+    public int puzzleCounter, maxPuzzleCount, tryCounter;
 
     private void Awake()
     {
@@ -23,15 +23,22 @@ public class GameManager : MonoBehaviour
         
     }
     
-    public int GetPuzzleCounter()
+    public int GetPuzzleCounter(int maxPuzzles)
     {
+        maxPuzzleCount= maxPuzzles;
         return puzzleCounter;
     }
 
-    public void LoadNextPuzzle()
+    public void LoadNextPuzzle(int trys)
     {
-        puzzleCounter++;
-        SceneManager.LoadScene("Gameplay");
+        tryCounter += trys;
+        if (maxPuzzleCount == puzzleCounter)
+            SceneManager.LoadScene("Endscreen");
+        else
+        {
+            puzzleCounter++;
+            SceneManager.LoadScene("Gameplay");
+        }
     }
 
     public void StartGame()
