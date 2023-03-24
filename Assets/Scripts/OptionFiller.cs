@@ -18,6 +18,9 @@ public class OptionFiller : MonoBehaviour
         puzzleList.Add(Typos());
         puzzleList.Add(EvenNumbers());
         puzzleList.Add(Tens());
+        puzzleList.Add(Vowels());
+        puzzleList.Add(NumbersToLetters());
+        puzzleList.Add(NumberCode());
         puzzleList.Add(SNumbers());
         puzzleList.Add(PrimeNumbers());
     }
@@ -287,6 +290,54 @@ public class OptionFiller : MonoBehaviour
 
         string hint = "Samantha sells sea shells so successfully, she sometimes stocks surplus supplies.";
 
+        Puzzle p = new Puzzle(options, correct, true, hint);
+        return p;
+    }
+
+    Puzzle NumberCode()
+    {
+        List<string> options = new List<string>
+        {
+            "42", "67", "14", "91", "26", "55", "88", "35", "79", "11", "66", "9", "54", "33", "95", "61", "17", "72", "50", "30", "12", "59", "82", "2"
+        };
+        List<string> correct = new List<string>
+        {
+            "42", "9", "33", "59"
+        };
+
+        string hint = "1-6-2-4";
+        Puzzle p = new Puzzle(options, correct, false, hint);
+        return p;
+    }
+
+    Puzzle NumbersToLetters()
+    {
+        List<string> options = new List<string>
+        {
+            "z", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x"
+        };
+        List<string> correct = new List<string>
+        {
+            "n", "i", "c", "e"
+        };
+
+        string hint = "14-9-3-5";
+        Puzzle p = new Puzzle(options, correct, true, hint);
+        return p;
+    }
+
+    Puzzle Vowels()
+    {
+        List<string> options = new List<string>
+        {
+            "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "s", "t", "w", "x", "z", "v", "r", "y", "o", "u", "e"
+        };
+        List<string> correct = new List<string>
+        {
+            "y", "o", "u", "e"
+        };
+
+        string hint = "I'll vow for you!";
         Puzzle p = new Puzzle(options, correct, true, hint);
         return p;
     }

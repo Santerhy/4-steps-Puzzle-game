@@ -1,7 +1,7 @@
 - Taustakuvat kaikkiin sceneihin
 - Pelin lopetus - lopetuspaneelin kuva
 - lisää puzzleja
-- oikein-ääni ja väärin-ääni implementointi
-- klikkaus-ääni
-- parempi fontti nappeihin
-- yrityslaskuri
+#- oikein-ääni ja väärin-ääni implementointi
+#- klikkaus-ääni
+#- parempi fontti nappeihin
+#- yrityslaskuri 

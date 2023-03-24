@@ -37,3 +37,18 @@ Hint: Can you feel the ten-sion?
 Correct: 69, 61, 77, 16
 Wrong: 14, 35, 46, 59, 28, 25, 86, 93, 37, 48, 91, 52, 13, 54, 89, 26, 38, 31, 82, 97
 Hint: Samantha sells sea shells so successfully, she sometimes stocks surplus supplies.
+
+----Vowels----
+Correct: y, o, u, e
+Wrong: b, c, d, f, g, h, j, k, l, m, n, p, q, s, t, w, x, z, v, r
+Hint: I'll vow for you!
+
+----Numbers to letters----
+Correct: n, i, c, e
+Wrong: b, d, f, g, h, j, k, l, m, o, p, q, r, s, t, u, v, w, x, y
+Hint: 14-9-3-5
+
+----Numbercode----
+Correct: 42			9			33			59
+Wrong: 67 14 91 26 55	 88 35 79 11 66		54 95 61 17 72 		50 30 12 82 2
+Hint: 1-6-2-4
