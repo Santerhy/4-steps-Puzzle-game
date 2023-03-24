@@ -9,18 +9,19 @@ using UnityEngine.UI;
 public class PuzzleGenerator : MonoBehaviour
 {
     public List<GameObject> selectedButtons = new List<GameObject>();
-    public GameObject buttonPrefab, buttonHolder, clickPreventPanel, levelClearPanel;
-    public int buttonCount, puzzleCounter, tryCounter;
+    public GameObject buttonPrefab, buttonHolder, clickPreventPanel, levelClearPanel, easyPanel;
+    public int buttonCount, puzzleCounter, tryCounter, correctTiles;
     public OptionFiller optionFiller;
     public Puzzle currentPuzzle;
     public GameManager gameManager;
-    public TMP_Text puzzleTitle, puzzleHint, tryCounterText, timeText;
+    public TMP_Text puzzleTitle, puzzleHint, tryCounterText, timeText, easyText;
     public Sprite tileSelected, tileDefault, tileFalse, tileCorrect;
     public Sprite defaultTieRight, defaultTieLeft, defaultTieRL, selectedTieRight, selectedTieLeft, selectedTieRL, falseTieRight, falseTieLeft, falseTieRL, correctTieRight, correctTieLeft, correctTieRL;
     public Animator menuAnimator;
     private MusicPlayer musicPlayer;
     private SoundeffectPlayer soundeffectPlayer;
     public Timer timer;
+    public bool normalMode;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -34,6 +35,7 @@ public class PuzzleGenerator : MonoBehaviour
         musicPlayer.PlayMusic();
         soundeffectPlayer = FindObjectOfType<SoundeffectPlayer>();
         tryCounter = 0;
+        normalMode = gameManager.normalDifficulty;
     }
 
     void GeneratePuzzle()
@@ -124,6 +126,7 @@ public class PuzzleGenerator : MonoBehaviour
         menuAnimator.SetTrigger("OpenMenu");
         tryCounterText.text = "Attempts: " + tryCounter.ToString();
         timeText.text = "Time: " + TimeSpan.FromSeconds(timer.GetTime()).ToString("mm\\:ss");
+        easyPanel.gameObject.SetActive(false);
         foreach (GameObject g in selectedButtons)
         {
             if (currentPuzzle.shuffle)
@@ -144,7 +147,7 @@ public class PuzzleGenerator : MonoBehaviour
     public void NextPuzzle()
     {
         soundeffectPlayer.PlayClick();
-        gameManager.LoadNextPuzzle(tryCounter);
+        gameManager.LoadNextPuzzle(tryCounter, timer.GetTime());
     }
 
     private void ResetPuzzle()
@@ -166,6 +169,11 @@ public class PuzzleGenerator : MonoBehaviour
                 else
                     g.GetComponent<Image>().sprite = falseTieRL;
             }
+        }
+        if (!normalMode)
+        {
+            easyPanel.gameObject.SetActive(true);
+            easyText.text = "Correct tiles in last try: " + correctTiles.ToString();
         }
         StartCoroutine(ButtonsDisabled());
     }
@@ -194,11 +202,16 @@ public class PuzzleGenerator : MonoBehaviour
 
     private bool CheckAnswers()
     {
+        int correct = 0;
         foreach(GameObject g in selectedButtons)
         {
-            if (!currentPuzzle.correctOptions.Contains(g.GetComponentInChildren<TMP_Text>().text))
-                return false;
+            if (currentPuzzle.correctOptions.Contains(g.GetComponentInChildren<TMP_Text>().text))
+                correct++;
         }
-        return true;
+        correctTiles = correct;
+        if (correct == 4)
+            return true;
+        else
+            return false;
     }
 }

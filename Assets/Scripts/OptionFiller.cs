@@ -16,13 +16,13 @@ public class OptionFiller : MonoBehaviour
         puzzleList.Add(HighestOfRow());
         puzzleList.Add(Bills());
         puzzleList.Add(Typos());
-        puzzleList.Add(EvenNumbers());
-        puzzleList.Add(Tens());
-        puzzleList.Add(Vowels());
-        puzzleList.Add(NumbersToLetters());
-        puzzleList.Add(NumberCode());
-        puzzleList.Add(SNumbers());
-        puzzleList.Add(PrimeNumbers());
+        //puzzleList.Add(EvenNumbers());
+        //puzzleList.Add(Tens());
+        //puzzleList.Add(Vowels());
+        //puzzleList.Add(NumbersToLetters());
+        //puzzleList.Add(NumberCode());
+        //puzzleList.Add(SNumbers());
+        //puzzleList.Add(PrimeNumbers());
     }
 
     public Puzzle GetPuzzle(int index)

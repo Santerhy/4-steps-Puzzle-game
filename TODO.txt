@@ -5,3 +5,4 @@
 #- klikkaus-ääni
 #- parempi fontti nappeihin
 #- yrityslaskuri 
+- Easy/hard -mode

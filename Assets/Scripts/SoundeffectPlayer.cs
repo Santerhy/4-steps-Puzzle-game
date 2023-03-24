@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundeffectPlayer : MonoBehaviour
 {
+
     private AudioSource _audioSource;
     public AudioClip levelClear, clickSound, failSound;
     private void Awake()

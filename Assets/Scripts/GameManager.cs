@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public int puzzleCounter, maxPuzzleCount, tryCounter;
+    public float overallTime = 0;
+    public bool normalDifficulty;
 
     private void Awake()
     {
@@ -17,10 +19,13 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
     }
-    // Start is called before the first frame update
-    void Start()
+    
+    public void ResetStats()
     {
-        
+        puzzleCounter = 0;
+        maxPuzzleCount = 0;
+        tryCounter = 0;
+        overallTime = 0;
     }
     
     public int GetPuzzleCounter(int maxPuzzles)
@@ -29,9 +34,10 @@ public class GameManager : MonoBehaviour
         return puzzleCounter;
     }
 
-    public void LoadNextPuzzle(int trys)
+    public void LoadNextPuzzle(int trys, float time)
     {
         tryCounter += trys;
+        overallTime += time;
         if (maxPuzzleCount == puzzleCounter)
             SceneManager.LoadScene("Endscreen");
         else
@@ -41,8 +47,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void StartEasy()
     {
+        normalDifficulty = false;
         SceneManager.LoadScene("Gameplay");
     }
+
+    public void StartNormal()
+    {
+        normalDifficulty = true;
+        SceneManager.LoadScene("Gameplay");
+    }
+
+    public float GetOverallTime() { return overallTime; }
+
+    public int GetOverallAttemps() { return tryCounter; }
 }
