@@ -1,8 +1,9 @@
 - Taustakuvat kaikkiin sceneihin
 - Pelin lopetus - lopetuspaneelin kuva
-- lisää puzzleja
+#- lisää puzzleja
 #- oikein-ääni ja väärin-ääni implementointi
 #- klikkaus-ääni
 #- parempi fontti nappeihin
 #- yrityslaskuri 
-- Easy/hard -mode
+#- Easy/hard -mode
+#- panel for easy mode
