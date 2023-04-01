@@ -7,3 +7,5 @@
 #- yrityslaskuri 
 #- Easy/hard -mode
 #- panel for easy mode
+- mute nappi
+- animaatio siirtyminen menusta gameplayhin
