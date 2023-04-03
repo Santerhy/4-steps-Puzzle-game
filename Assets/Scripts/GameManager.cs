@@ -34,34 +34,34 @@ public class GameManager : MonoBehaviour
         return puzzleCounter;
     }
 
-    public void LoadNextPuzzle(int trys, float time)
+    public void SaveStats(int trys, float time)
     {
         tryCounter += trys;
         overallTime += time;
+    }
+
+    public string GetNextScene()
+    {
         if (maxPuzzleCount == puzzleCounter)
-            SceneManager.LoadScene("Endscreen");
+            return "Endscreen";
         else
         {
             puzzleCounter++;
-            SceneManager.LoadScene("Gameplay");
+            return "Gameplay";
         }
     }
 
     public void StartEasy()
     {
         normalDifficulty = false;
-        StartMusic();
-        SceneManager.LoadScene("Gameplay");
     }
 
     public void StartNormal()
     {
         normalDifficulty = true;
-        StartMusic();
-        SceneManager.LoadScene("Gameplay");
     }
 
-    private void StartMusic()
+    public void StartMusic()
     {
         FindObjectOfType<MusicPlayer>().PlayMusic();
     }

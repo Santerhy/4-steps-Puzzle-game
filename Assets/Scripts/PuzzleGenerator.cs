@@ -22,6 +22,7 @@ public class PuzzleGenerator : MonoBehaviour
     private SoundeffectPlayer soundeffectPlayer;
     public Timer timer;
     public bool normalMode, helpMenuOpen = false;
+    public TransitionManager transitionManager;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -147,7 +148,8 @@ public class PuzzleGenerator : MonoBehaviour
     public void NextPuzzle()
     {
         soundeffectPlayer.PlayClick();
-        gameManager.LoadNextPuzzle(tryCounter, timer.GetTime());
+        gameManager.SaveStats(tryCounter, timer.GetTime());
+        transitionManager.StartTransition(gameManager.GetNextScene());
     }
 
     private void ResetPuzzle()

@@ -8,5 +8,5 @@
 #- Easy/hard -mode
 #- panel for easy mode
 #- mute nappi
-- animaatio siirtyminen menusta gameplayhin
+#- animaatio siirtyminen menusta gameplayhin
 - tekstuuri easy mode- paneeliin
