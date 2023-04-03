@@ -6,7 +6,7 @@ public class HelpPanel : MonoBehaviour
 {
     public Animator helpPanelAnimator;
     bool playOpen = false, ableToInteract = true;
-    public GameObject helpPanel, clickPreventPanel;
+    public GameObject helpPanel, clickPreventPanel, quitMenuPanel;
     private float clipTime;
     private PuzzleGenerator puzzleGenerator;
 
@@ -45,4 +45,12 @@ public class HelpPanel : MonoBehaviour
         yield return new WaitForSeconds(clipTime);
         ableToInteract = true;
     }
+
+    public void OpenQuitMenu()
+    {
+        quitMenuPanel.SetActive(true);
+    }
+    public void QuitGame() { Application.Quit(); }
+
+    public void ContinueGame() { quitMenuPanel.SetActive(false);  }
 }

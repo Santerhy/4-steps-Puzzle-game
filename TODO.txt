@@ -7,6 +7,6 @@
 #- yrityslaskuri 
 #- Easy/hard -mode
 #- panel for easy mode
-- mute nappi
+#- mute nappi
 - animaatio siirtyminen menusta gameplayhin
 - tekstuuri easy mode- paneeliin
