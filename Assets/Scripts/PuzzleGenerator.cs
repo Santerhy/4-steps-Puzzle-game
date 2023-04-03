@@ -169,6 +169,7 @@ public class PuzzleGenerator : MonoBehaviour
                 else
                     g.GetComponent<Image>().sprite = falseTieRL;
             }
+            g.GetComponent<Animator>().SetTrigger("Fail");
         }
         if (!normalMode)
         {
