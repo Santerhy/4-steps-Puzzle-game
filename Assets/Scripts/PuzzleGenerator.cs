@@ -21,7 +21,7 @@ public class PuzzleGenerator : MonoBehaviour
     private MusicPlayer musicPlayer;
     private SoundeffectPlayer soundeffectPlayer;
     public Timer timer;
-    public bool normalMode;
+    public bool normalMode, helpMenuOpen = false;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -181,7 +181,8 @@ public class PuzzleGenerator : MonoBehaviour
     IEnumerator ButtonsDisabled()
     {
         yield return new WaitForSeconds(1);
-        clickPreventPanel.SetActive(false);
+        if (!helpMenuOpen)
+            clickPreventPanel.SetActive(false);
         foreach (GameObject g in selectedButtons)
         {
             if (currentPuzzle.shuffle)
