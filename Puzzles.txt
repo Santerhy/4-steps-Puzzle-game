@@ -52,3 +52,8 @@ Hint: 14-9-3-5
 Correct: 42			9			33			59
 Wrong: 67 14 91 26 55	 88 35 79 11 66		54 95 61 17 72 		50 30 12 82 2
 Hint: 1-6-2-4
+
+----Coordinate----
+Correct: coordinate system from 0,0 to 5, 3
+Wrong: 			-||-
+Hint:

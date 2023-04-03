@@ -50,13 +50,20 @@ public class GameManager : MonoBehaviour
     public void StartEasy()
     {
         normalDifficulty = false;
+        StartMusic();
         SceneManager.LoadScene("Gameplay");
     }
 
     public void StartNormal()
     {
         normalDifficulty = true;
+        StartMusic();
         SceneManager.LoadScene("Gameplay");
+    }
+
+    private void StartMusic()
+    {
+        FindObjectOfType<MusicPlayer>().PlayMusic();
     }
 
     public float GetOverallTime() { return overallTime; }

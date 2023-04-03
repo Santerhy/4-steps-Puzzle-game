@@ -22,4 +22,9 @@ public class MusicPlayer : MonoBehaviour
     {
         _audioSource.Stop();
     }
+
+    public bool GetMusicStatus()
+    {
+        return _audioSource.isPlaying;
+    }
 }

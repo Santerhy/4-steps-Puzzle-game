@@ -15,6 +15,7 @@ public class OptionFiller : MonoBehaviour
         puzzleList.Add(EverySixth());
         puzzleList.Add(HighestOfRow());
         puzzleList.Add(Bills());
+        puzzleList.Add(Coordinate());
         puzzleList.Add(Typos());
         puzzleList.Add(EvenNumbers());
         puzzleList.Add(Tens());
@@ -339,6 +340,29 @@ public class OptionFiller : MonoBehaviour
 
         string hint = "I'll vow for you!";
         Puzzle p = new Puzzle(options, correct, true, hint);
+        return p;
+    }
+
+    Puzzle Coordinate()
+    {
+        List<string> options = new List<string>();
+        List<string> correct = new List<string>
+        {
+            "0, 0", "1, 1", "2, 3", "4, 2"
+        };
+
+
+        for (int y = 3; y >= 0; y--)
+        {
+            for (int x = 0; x <= 5; x++)
+            {
+                options.Add(x.ToString() + ", " + y.ToString());
+            }
+        }
+
+        string hint = "Day 1: 0€ revenue. Day 2: +100€ revenue. Day 3: +200€ revenue. Day 5: -100€ revenue.";
+
+        Puzzle p = new Puzzle(options, correct, false, hint);
         return p;
     }
 }

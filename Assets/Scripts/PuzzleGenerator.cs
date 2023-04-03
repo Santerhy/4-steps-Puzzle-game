@@ -31,8 +31,8 @@ public class PuzzleGenerator : MonoBehaviour
         if (currentPuzzle.shuffle)
             buttonHolder.GetComponent<GridLayoutGroup>().spacing = new Vector2(10, 20);
         puzzleHint.text = currentPuzzle.hint;
-        musicPlayer = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>();
-        musicPlayer.PlayMusic();
+        //musicPlayer = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>();
+        //musicPlayer.PlayMusic();
         soundeffectPlayer = FindObjectOfType<SoundeffectPlayer>();
         tryCounter = 0;
         normalMode = gameManager.normalDifficulty;
