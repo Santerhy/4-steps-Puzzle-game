@@ -28,7 +28,7 @@ public class SparkSpawner : MonoBehaviour
         GameObject g = Instantiate(sparkPrefab);
         g.transform.SetParent(transform, false);
         g.transform.position = new Vector2(Random.Range(-8f, 9f), transform.position.y);
-        Destroy(g, 20f);
+        Destroy(g, 10f);
         
     }
 }

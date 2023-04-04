@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.13
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4.86
+      scalar: 11.76
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -867,7 +867,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 219.1
+      scalar: 287
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4912,8 +4912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0d04313ef448e4fa5dd9d3b9900563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  timeTillTurn: 3
+  moveSpeed: 3
+  timeTillTurn: 1
   moveDir: {x: 0, y: -1}
   movingDown: 1
 --- !u!1 &8481925197298867952
@@ -5664,7 +5664,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.0001
+      value: 0.06
       mode: 0
       spread: 0
       speed:
@@ -5783,7 +5783,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 40
       minScalar: 10
       maxCurve:
         serializedVersion: 2

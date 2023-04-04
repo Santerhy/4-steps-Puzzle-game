@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class EndscreenManager : MonoBehaviour
 {
     GameManager gameManager;
+    public TransitionManager transitionManager;
     public TMP_Text attempsText, timeText;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,6 @@ public class EndscreenManager : MonoBehaviour
     
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene("Menu");
+        transitionManager.StartTransition("Menu");
     }
 }
