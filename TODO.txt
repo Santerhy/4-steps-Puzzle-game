@@ -1,4 +1,4 @@
-- Taustakuvat kaikkiin sceneihin
+#- Taustakuvat kaikkiin sceneihin
 - Pelin lopetus - lopetuspaneelin kuva
 #- lisää puzzleja
 #- oikein-ääni ja väärin-ääni implementointi
@@ -9,4 +9,5 @@
 #- panel for easy mode
 #- mute nappi
 #- animaatio siirtyminen menusta gameplayhin
-- tekstuuri easy mode- paneeliin
+#- tekstuuri easy mode- paneeliin
+- animaatioon textuuri

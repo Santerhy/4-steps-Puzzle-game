@@ -33,8 +33,6 @@ public class TransitionManager : MonoBehaviour
 
     public void EndTransition()
     {
-        rs.fillAmount= 0;
-        ls.fillAmount = 0;
         rs.gameObject.SetActive(false);
         ls.gameObject.SetActive(false);
         Debug.Log(rs.gameObject.activeInHierarchy);
