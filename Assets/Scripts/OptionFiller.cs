@@ -15,7 +15,7 @@ public class OptionFiller : MonoBehaviour
         puzzleList.Add(EverySixth());
         puzzleList.Add(HighestOfRow());
         puzzleList.Add(Bills());
-        puzzleList.Add(Coordinate());
+        //puzzleList.Add(Coordinate());
         puzzleList.Add(Typos());
         puzzleList.Add(EvenNumbers());
         puzzleList.Add(Tens());
@@ -356,7 +356,7 @@ public class OptionFiller : MonoBehaviour
         {
             for (int x = 0; x <= 5; x++)
             {
-                options.Add(x.ToString() + ", " + y.ToString());
+                options.Add(x.ToString() + "," + y.ToString());
             }
         }
 

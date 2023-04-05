@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveHighscores()
     {
-        if (GetOverallAttemps() < highscoreAttemps && GetOverallTime() < highscoreTime)
+        if (GetOverallAttemps() < highscoreAttemps && GetOverallTime() < highscoreTime || highscoreAttemps == 0)
         {
             PlayerPrefs.SetInt("HighscoreAttemps", GetOverallAttemps());
             PlayerPrefs.SetFloat("HighscoreTime", GetOverallTime());
