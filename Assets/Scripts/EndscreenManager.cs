@@ -16,6 +16,9 @@ public class EndscreenManager : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         attempsText.text = "Total attemps: " + gameManager.GetOverallAttemps().ToString();
         timeText.text = "Time: " + TimeSpan.FromSeconds(gameManager.GetOverallTime()).ToString("mm\\:ss");
+        gameManager.SaveHighscores();
+        gameManager.ResetStats();
+        gameManager.SaveData();
     }
     
     public void ReturnToMenu()

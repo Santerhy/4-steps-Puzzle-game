@@ -1,5 +1,5 @@
 #- Taustakuvat kaikkiin sceneihin
-- Pelin lopetus - lopetuspaneelin kuva
+#- Pelin lopetus - lopetuspaneelin kuva
 #- lisää puzzleja
 #- oikein-ääni ja väärin-ääni implementointi
 #- klikkaus-ääni
@@ -10,4 +10,6 @@
 #- mute nappi
 #- animaatio siirtyminen menusta gameplayhin
 #- tekstuuri easy mode- paneeliin
-- animaatioon textuuri
+#- animaatioon textuuri
+#- tallenus/lataus
+- loppuruudun frame

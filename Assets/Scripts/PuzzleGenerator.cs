@@ -149,6 +149,7 @@ public class PuzzleGenerator : MonoBehaviour
     {
         soundeffectPlayer.PlayClick();
         gameManager.SaveStats(tryCounter, timer.GetTime());
+        gameManager.SaveData();
         transitionManager.StartTransition(gameManager.GetNextScene());
     }
 
