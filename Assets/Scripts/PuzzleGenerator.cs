@@ -30,7 +30,7 @@ public class PuzzleGenerator : MonoBehaviour
         puzzleTitle.text = "Puzzle " + (puzzleCounter + 1).ToString();
         GeneratePuzzle();
         if (currentPuzzle.shuffle)
-            buttonHolder.GetComponent<GridLayoutGroup>().spacing = new Vector2(10, 20);
+            buttonHolder.GetComponent<GridLayoutGroup>().spacing = new Vector2(10, 10);
         puzzleHint.text = currentPuzzle.hint;
         //musicPlayer = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicPlayer>();
         //musicPlayer.PlayMusic();
