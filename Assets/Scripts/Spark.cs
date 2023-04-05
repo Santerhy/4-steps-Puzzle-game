@@ -28,12 +28,12 @@ public class Spark : MonoBehaviour
         {
             moveDir = Random.Range(-1, 1) == -1 ? new Vector2(-1, 0) : new Vector2(1, 0);
             movingDown = !movingDown;
-            timeTillTurn = 1f;
         } else
         {
             moveDir = new Vector2(0, -1);
             movingDown = !movingDown;
-            timeTillTurn = 3f;
         }
+
+        timeTillTurn = Random.Range(1.0f, 4.0f);
     }
 }

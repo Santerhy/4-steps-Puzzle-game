@@ -14,7 +14,6 @@ public class OptionFiller : MonoBehaviour
     {
         puzzleList.Add(EverySixth());
         puzzleList.Add(HighestOfRow());
-        /*
         puzzleList.Add(Bills());
         puzzleList.Add(Coordinate());
         puzzleList.Add(Typos());
@@ -25,7 +24,6 @@ public class OptionFiller : MonoBehaviour
         puzzleList.Add(NumberCode());
         puzzleList.Add(SNumbers());
         puzzleList.Add(PrimeNumbers());
-        */
     }
 
     public Puzzle GetPuzzle(int index)
