@@ -12,4 +12,5 @@
 #- tekstuuri easy mode- paneeliin
 #- animaatioon textuuri
 #- tallenus/lataus
-- loppuruudun frame
+#- loppuruudun frame
+- extra hint 
